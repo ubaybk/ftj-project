@@ -27,28 +27,52 @@ export default function Home() {
       {/* Overlay gelap */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      {/* Konten di atas overlay */}
-      <div className="relative z-10 p-8 flex justify-between">
+      {/* Header dengan efek blur dan transparan */}
+      <div
+        className="relative z-10 p-4 flex justify-between items-center backdrop-blur-md bg-black bg-opacity-50 rounded-lg"
+      >
+        {/* Logo atau Judul */}
         <div>
           <h1 className="text-white text-2xl font-bold">
-            Welcome to Family To Jannah
+            Family To Jannah
           </h1>
-          <p className="text-white mt-4">Enjoy your favorite music!</p>
+          
         </div>
-        <div className="text-white text-4xl cursor-pointer md:hidden" onClick={toggleMenu}>
+
+        {/* Hamburger menu */}
+        <div
+          className="text-white text-4xl cursor-pointer md:hidden"
+          onClick={toggleMenu}
+        >
           <GiHamburgerMenu />
         </div>
       </div>
 
-      {/* Menu dropdown */}
+      {/* Sidebar menu dengan slide horizontal */}
       {isMenuOpen && (
-        <div className="absolute top-20 right-8 bg-white text-black p-4 rounded shadow-lg z-20">
-          <ul>
-            <li className="mb-2 cursor-pointer">Home</li>
-            <li className="mb-2 cursor-pointer">About</li>
-            <li className="mb-2 cursor-pointer">Contact</li>
-          </ul>
-        </div>
+        <>
+          {/* Overlay untuk menutup menu */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-30"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+
+          {/* Sidebar */}
+          <div
+            className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-40 transform transition-transform duration-300 ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="p-4">
+              <h2 className="text-xl font-bold mb-4">Menu</h2>
+              <ul>
+                <li className="mb-2 cursor-pointer">Home</li>
+                <li className="mb-2 cursor-pointer">About</li>
+                <li className="mb-2 cursor-pointer">Contact</li>
+              </ul>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
