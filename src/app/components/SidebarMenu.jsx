@@ -1,6 +1,8 @@
 "use client"; // Pastikan menggunakan 'use client' karena menggunakan state
 
+import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
+
 
 export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
   return (
@@ -24,7 +26,9 @@ export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
             <li className="mb-2 cursor-pointer">Home</li>
             <li className="mb-2 cursor-pointer">About</li>
             <li className="mb-2 cursor-pointer">Contact</li>
+            <Link href={'/pages/members'}>
             <li className="mb-2 cursor-pointer">Member</li>
+            </Link>
           </ul>
         </div>
       </div>
