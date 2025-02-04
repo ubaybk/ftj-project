@@ -20,7 +20,7 @@ export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="p-4">
+        <div className="p-4 text-black">
           <h2 className="text-xl font-bold mb-4">Menu</h2>
           <ul>
             <li className="mb-2 cursor-pointer">Home</li>
