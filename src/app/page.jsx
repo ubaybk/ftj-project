@@ -4,6 +4,7 @@ import Loading from "./components/Loading";
 import SidebarMenu from "./components/SidebarMenu";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 
 export default function Home() {
@@ -75,6 +76,7 @@ export default function Home() {
 
       {/* Gunakan komponen SidebarMenu */}
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Footer />
     </div>
   );
 }

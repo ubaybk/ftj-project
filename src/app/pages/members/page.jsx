@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import SidebarMenu from "../../components/SidebarMenu";
+import Footer from "../../components/Footer";
 
 const Members = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk hamburger menu
@@ -60,6 +61,7 @@ const Members = () => {
                 </div>
             </div>
             <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            <Footer />
         </div>
     );
 };
