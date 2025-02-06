@@ -4,6 +4,8 @@ import Loading from "./components/Loading";
 import SidebarMenu from "./components/SidebarMenu";
 
 import Navbar from "./components/Navbar";
+import PhotoCarousel from "./components/PhotoCarousel";
+
 
 
 export default function Home() {
@@ -33,7 +35,7 @@ export default function Home() {
      
 
       {/* Hero Section */}
-      <div className="relative z-10 mt-8 p-8">
+      <div className="relative z-10 mt-1 p-8">
         {/* Judul Hero Section */}
         <h2 className="text-white text-3xl font-bold mb-4">WHO WE ARE</h2>
 
@@ -72,6 +74,8 @@ export default function Home() {
           />
         </div>
       </div>
+
+      {/* <PhotoCarousel /> */}
 
       {/* Gunakan komponen SidebarMenu */}
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />

@@ -11,9 +11,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         <div className="relative z-10 p-4 flex justify-between items-center backdrop-blur-md bg-transparent bg-opacity-50 rounded-lg">
         {/* Logo atau Judul */}
         <Link href={'/'}>
-        <div className="flex">
-          <img src="/images/logoFTJ.png" className="w-10" alt="" />
-          <h1 className="text-white text-2xl font-bold">Family To Jannah</h1>
+        <div className="flex gap-2">
+          <img src="/images/logoFTJ.png" className="w-14" alt="" />
+          <img src="/images/fontFtj.png" className="w-32" alt="" />
         </div>
         </Link>
         <div className="hidden md:flex justify-center items-center gap-10 text-white">
