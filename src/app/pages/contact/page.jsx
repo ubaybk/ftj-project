@@ -5,6 +5,7 @@ import Navbar from '@/app/components/Navbar';
 import { motion } from 'framer-motion';
 import { FaTiktok } from "react-icons/fa";
 
+
 const Contact = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
@@ -120,40 +121,52 @@ const Contact = () => {
                     </motion.div>
                     
                     {/* Social Media Section */}
-                    <motion.div variants={itemVariants}>
-                        <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
-                            Follow Our Social Media
-                        </h2>
-                        <div className="space-y-3">
-                            <motion.div 
-                                className="flex items-center gap-3 p-3 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg hover:shadow-md transition-all"
-                                whileHover={{ x: 10, scale: 1.02 }}
-                            >
-                                <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-2 rounded-full">
-                                    <Instagram className="w-5 h-5 text-white" />
-                                </div>
-                                <p>@familytojannah.id</p>
-                            </motion.div>
-                            <motion.div 
-                                className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg hover:shadow-md transition-all"
-                                whileHover={{ x: 10, scale: 1.02 }}
-                            >
-                                <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-2 rounded-full">
-                                <FaTiktok className="w-5 h-5 text-white" />
-                                </div>
-                                <p>familytojannah</p>
-                            </motion.div>
-                            <motion.div 
-                                className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-50 to-pink-50 rounded-lg hover:shadow-md transition-all"
-                                whileHover={{ x: 10, scale: 1.02 }}
-                            >
-                                <div className="bg-gradient-to-r from-blue-500 to-pink-500 p-2 rounded-full">
-                                    <Youtube className="w-5 h-5 text-white" />
-                                </div>
-                                <p>FTJID (Family To Jannah)</p>
-                            </motion.div>
-                        </div>
-                    </motion.div>
+{/* Social Media Section */}
+<motion.div variants={itemVariants}>
+    <h2 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-transparent bg-clip-text">
+        Follow Our Social Media
+    </h2>
+    <div className="space-y-3">
+        {/* Instagram */}
+        <a href="https://www.instagram.com/familytojannah.id" target="_blank" rel="noopener noreferrer" className="block">
+            <motion.div 
+                className="flex items-center gap-3 p-3 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg hover:shadow-md transition-all"
+                whileHover={{ x: 10, scale: 1.02 }}
+            >
+                <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-2 rounded-full">
+                    <Instagram className="w-5 h-5 text-white" />
+                </div>
+                <p>@familytojannah.id</p>
+            </motion.div>
+        </a>
+
+        {/* TikTok */}
+        <a href="https://www.tiktok.com/@familytojannah" target="_blank" rel="noopener noreferrer" className="block">
+            <motion.div 
+                className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg hover:shadow-md transition-all"
+                whileHover={{ x: 10, scale: 1.02 }}
+            >
+                <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-2 rounded-full">
+                    <FaTiktok className="w-5 h-5 text-white" />
+                </div>
+                <p>familytojannah</p>
+            </motion.div>
+        </a>
+
+        {/* YouTube */}
+        <a href="https://www.youtube.com/@Ftjid" target="_blank" rel="noopener noreferrer" className="block">
+            <motion.div 
+                className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-50 to-pink-50 rounded-lg hover:shadow-md transition-all"
+                whileHover={{ x: 10, scale: 1.02 }}
+            >
+                <div className="bg-gradient-to-r from-blue-500 to-pink-500 p-2 rounded-full">
+                    <Youtube className="w-5 h-5 text-white" />
+                </div>
+                <p>FTJID (Family To Jannah)</p>
+            </motion.div>
+        </a>
+    </div>
+</motion.div>
                 </motion.div>
             </motion.main>
         </div>
