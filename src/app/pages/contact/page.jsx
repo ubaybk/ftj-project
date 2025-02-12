@@ -93,16 +93,16 @@ const Contact = () => {
               For Friends and Fans
             </h2>
             <a href="mailto:familytojannahid@gmail.com" className="block">
-  <motion.div
-    className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg hover:shadow-md transition-all"
-    whileHover={{ x: 10 }}
-  >
-    <div className="bg-purple-500 p-2 rounded-full">
-      <Mail className="w-5 h-5 text-white" />
-    </div>
-    <p>familytojannahid@gmail.com</p>
-  </motion.div>
-</a>
+              <motion.div
+                className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg hover:shadow-md transition-all"
+                whileHover={{ x: 10 }}
+              >
+                <div className="bg-purple-500 p-2 rounded-full">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <p>familytojannahid@gmail.com</p>
+              </motion.div>
+            </a>
           </motion.div>
 
           {/* Team Section */}

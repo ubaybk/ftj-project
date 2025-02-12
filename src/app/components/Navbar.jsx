@@ -32,6 +32,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             Member
           </h1>
         </Link>
+        <Link href={"/pages/mediaCollaboration"}>
+          <h1 className="cursor-pointer hover:text-gray-300 transition-colors">
+            Media & Collaborations
+          </h1>
+        </Link>
       </div>
 
       {/* Hamburger menu */}
