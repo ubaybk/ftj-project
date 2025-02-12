@@ -4,6 +4,7 @@ import { Mail, Phone, Instagram, Youtube } from "lucide-react";
 import Navbar from "@/app/components/Navbar";
 import { motion } from "framer-motion";
 import { FaTiktok } from "react-icons/fa";
+import SidebarMenu from "@/app/components/SidebarMenu";
 
 const Contact = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -197,6 +198,7 @@ const Contact = () => {
           </motion.div>
         </motion.div>
       </motion.main>
+       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   );
 };

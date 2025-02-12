@@ -3,12 +3,15 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import contentfullMedia from "../../../contentful/contentfullMedia";
+import SidebarMenu from "@/app/components/SidebarMenu";
+
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-900">
     <div className="w-16 h-16 border-4 border-blue-500 rounded-full border-t-transparent animate-spin" />
   </div>
 );
 const MediaColaboration = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mediaLinks, setMediaLinks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -93,16 +96,16 @@ const MediaColaboration = () => {
         style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 backdrop-blur-sm" />
-      <Navbar />
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <AnimatePresence>
-        <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="relative  container mx-auto px-4 py-16">
           <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="text-center text-white mb-16"
           >
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent ">
               Media & Collaborations
             </h1>
             <p className="text-xl max-w-3xl mx-auto text-gray-200">
@@ -146,6 +149,7 @@ const MediaColaboration = () => {
           </motion.div>
         </div>
       </AnimatePresence>
+       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   );
 };
