@@ -25,9 +25,14 @@ export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
           <ul>
             <li className="mb-2 cursor-pointer">Home</li>
             <li className="mb-2 cursor-pointer">About</li>
+            <Link href={"/pages/contact"}>
             <li className="mb-2 cursor-pointer">Contact</li>
+            </Link>
             <Link href={'/pages/members'}>
             <li className="mb-2 cursor-pointer">Member</li>
+            </Link>
+            <Link href={'/pages/mediaCollaboration'}>
+            <li className="mb-2 cursor-pointer"> Media & Collaborations</li>
             </Link>
           </ul>
         </div>
