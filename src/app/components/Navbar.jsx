@@ -41,7 +41,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Hamburger menu */}
       <div
-        className="text-white text-4xl cursor-pointer md:hidden"
+        className="text-white text-4xl cursor-pointer md:hidden z-50"
         onClick={toggleMenu}
       >
         <GiHamburgerMenu />

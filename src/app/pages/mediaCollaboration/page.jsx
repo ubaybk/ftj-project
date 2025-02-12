@@ -3,19 +3,16 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import contentfullMedia from "../../../contentful/contentfullMedia";
-
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-900">
     <div className="w-16 h-16 border-4 border-blue-500 rounded-full border-t-transparent animate-spin" />
   </div>
 );
-
 const MediaColaboration = () => {
   const [mediaLinks, setMediaLinks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isMounted, setIsMounted] = useState(false);
-
   useEffect(() => {
     setIsMounted(true);
     const fetchData = async () => {
@@ -23,23 +20,19 @@ const MediaColaboration = () => {
         const response = await contentfullMedia.getEntries({
           content_type: "ftjProject",
         });
-
         if (!response.items || response.items.length === 0) {
           throw new Error("No data found in Contentful");
         }
-
         const entries = response.items.map((item) => {
           const imageAsset = response.includes.Asset.find(
             (asset) => asset.sys.id === item.fields.imgArtikel.sys.id
           );
-
           return {
             title: item.fields.mediaJudul,
             url: item.fields.url,
             image: imageAsset?.fields?.file?.url,
           };
         });
-
         setMediaLinks(entries);
         setLoading(false);
       } catch (err) {
@@ -48,15 +41,12 @@ const MediaColaboration = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
-
   // Don't render anything until after mount
   if (!isMounted) {
     return <LoadingSpinner />;
   }
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -66,7 +56,6 @@ const MediaColaboration = () => {
       },
     },
   };
-
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -77,11 +66,9 @@ const MediaColaboration = () => {
       },
     },
   };
-
   if (loading) {
     return <LoadingSpinner />;
   }
-
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-900">
@@ -96,7 +83,6 @@ const MediaColaboration = () => {
       </div>
     );
   }
-
   return (
     <div className="min-h-screen relative">
       <motion.div
@@ -107,9 +93,7 @@ const MediaColaboration = () => {
         style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 backdrop-blur-sm" />
-
       <Navbar />
-
       <AnimatePresence>
         <div className="relative z-10 container mx-auto px-4 py-16">
           <motion.div
@@ -122,10 +106,11 @@ const MediaColaboration = () => {
               Media & Collaborations
             </h1>
             <p className="text-xl max-w-3xl mx-auto text-gray-200">
-              Family to Jannah has been receiving warm welcome from the media. We have been featured in numerous news outlets, with the following being some of the notable news coverage we have received so far:
+              Family to Jannah has been receiving warm welcome from the media.
+              We have been featured in numerous news outlets, with the following
+              being some of the notable news coverage we have received so far:
             </p>
           </motion.div>
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -164,5 +149,4 @@ const MediaColaboration = () => {
     </div>
   );
 };
-
 export default MediaColaboration;
