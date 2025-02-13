@@ -60,7 +60,7 @@ const Contact = () => {
             <h2 className="text-2xl font-semibold mb-4 text-blue-600">
               For PR and Business Purpose
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-3 text-black">
               <a href="tel:+6289526603943" className="block">
                 <motion.div
                   className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg hover:shadow-md transition-all"
@@ -76,7 +76,7 @@ const Contact = () => {
               {/* Email Address */}
               <a href="mailto:familytojannahid@gmail.com" className="block">
                 <motion.div
-                  className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg hover:shadow-md transition-all"
+                  className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg hover:shadow-md transition-all text-black"
                   whileHover={{ x: 10 }}
                 >
                   <div className="bg-blue-500 p-2 rounded-full">
@@ -95,7 +95,7 @@ const Contact = () => {
             </h2>
             <a href="mailto:familytojannahid@gmail.com" className="block">
               <motion.div
-                className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg hover:shadow-md transition-all"
+                className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg hover:shadow-md transition-all text-black"
                 whileHover={{ x: 10 }}
               >
                 <div className="bg-purple-500 p-2 rounded-full">
@@ -111,8 +111,8 @@ const Contact = () => {
             <h2 className="text-2xl font-semibold mb-4 text-pink-600">
               Our Team
             </h2>
-            <p className="font-medium mb-2">Lead by Dr. Luigi Team:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <p className="font-medium mb-2 text-black">Lead by Dr. Luigi Team:</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-black">
               {[
                 "Franka Soeria",
                 "Hasrika",
@@ -155,7 +155,7 @@ const Contact = () => {
                   <div className="bg-gradient-to-r from-pink-500 to-purple-500 p-2 rounded-full">
                     <Instagram className="w-5 h-5 text-white" />
                   </div>
-                  <p>@familytojannah.id</p>
+                  <p className="text-black">@familytojannah.id</p>
                 </motion.div>
               </a>
 
@@ -173,7 +173,7 @@ const Contact = () => {
                   <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-2 rounded-full">
                     <FaTiktok className="w-5 h-5 text-white" />
                   </div>
-                  <p>familytojannah</p>
+                  <p className="text-black">familytojannah</p>
                 </motion.div>
               </a>
 
@@ -191,7 +191,7 @@ const Contact = () => {
                   <div className="bg-gradient-to-r from-blue-500 to-pink-500 p-2 rounded-full">
                     <Youtube className="w-5 h-5 text-white" />
                   </div>
-                  <p>FTJID (Family To Jannah)</p>
+                  <p className="text-black">FTJID (Family To Jannah)</p>
                 </motion.div>
               </a>
             </div>
