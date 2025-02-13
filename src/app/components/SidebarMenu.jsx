@@ -87,7 +87,7 @@ export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
                 Need help? Contact us
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                support@yourwebsite.com
+              familytojannahid@gmail.com
               </p>
             </div>
           </div>
