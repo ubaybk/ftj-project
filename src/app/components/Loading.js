@@ -10,7 +10,7 @@ export default function Loading() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false); // Setelah 3 detik, ubah state menjadi false
-    }, 3000); // 3000 ms = 3 detik
+    }, 5000); // 3000 ms = 3 detik
 
     // Membersihkan timer jika komponen dibongkar
     return () => clearTimeout(timer);

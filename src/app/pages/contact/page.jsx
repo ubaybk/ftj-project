@@ -4,6 +4,7 @@ import { Mail, Phone, Instagram, Youtube } from "lucide-react";
 import Navbar from "@/app/components/Navbar";
 import { motion } from "framer-motion";
 import { FaTiktok } from "react-icons/fa";
+import { FaSpotify } from "react-icons/fa";
 import SidebarMenu from "@/app/components/SidebarMenu";
 
 const Contact = () => {
@@ -192,6 +193,24 @@ const Contact = () => {
                     <Youtube className="w-5 h-5 text-white" />
                   </div>
                   <p className="text-black">FTJID (Family To Jannah)</p>
+                </motion.div>
+              </a>
+              
+              {/* Spotify */}
+              <a
+                href="https://open.spotify.com/artist/4VTAmlMXvksCpw18niJwUR"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <motion.div
+                  className="flex items-center gap-3 p-3 bg-gradient-to-r from-blue-50 to-pink-50 rounded-lg hover:shadow-md transition-all"
+                  whileHover={{ x: 10, scale: 1.02 }}
+                >
+                  <div className="bg-gradient-to-r from-blue-500 to-pink-500 p-2 rounded-full">
+                    <FaSpotify className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="text-black">Spotify</p>
                 </motion.div>
               </a>
             </div>

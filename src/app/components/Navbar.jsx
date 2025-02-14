@@ -16,9 +16,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
       </Link>
       <div className="hidden md:flex justify-center items-center gap-10 text-white">
+        <Link href={"/"}>
         <h1 className="cursor-pointer hover:text-gray-300 transition-colors">
           Home
         </h1>
+        </Link>
         <h1 className="cursor-pointer hover:text-gray-300 transition-colors">
           About
         </h1>
