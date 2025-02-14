@@ -1,45 +1,124 @@
-"use client"; // Pastikan menggunakan 'use client' untuk menggunakan hooks
+"use client";
 import { useState, useEffect } from "react";
 import Loading from "./components/Loading";
 import SidebarMenu from "./components/SidebarMenu";
-
 import Navbar from "./components/Navbar";
-import PhotoCarousel from "./components/PhotoCarousel";
-
-
+import contentfullMedia from "@/contentful/contentfullMedia";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk hamburger menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [carouselData, setCarouselData] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
+    const fetchData = async () => {
+      try {
+        const response = await contentfullMedia.getEntries({
+          content_type: "musicVideo",
+        });
+
+        if (!response.items || response.items.length === 0) {
+          throw new Error("No data found in Contentful");
+        }
+
+        const entries = response.items.map((item) => {
+          const imageAsset = response.includes.Asset.find(
+            (asset) => asset.sys.id === item.fields.imgMusicVideo.sys.id
+          );
+
+          return {
+            title: item.fields.judulMusic,
+            image: imageAsset?.fields?.file?.url,
+            youtubeUrl: item.fields.linkYt,
+          };
+        });
+
+        setCarouselData(entries);
+        setIsLoading(false);
+      } catch (err) {
+        console.error("Error fetching data from Contentful:", err);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  // Handler untuk toggle menu
-  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) =>
+        prevSlide === carouselData.length - 1 ? 0 : prevSlide + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [carouselData]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === carouselData.length - 1 ? 0 : prevSlide + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? carouselData.length - 1 : prevSlide - 1
+    );
+  };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div
       className="min-h-screen bg-cover bg-center relative"
       style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}
     >
-      {/* Overlay gelap */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      {/* Header dengan efek blur dan transparan */}
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-     
 
-      {/* Hero Section */}
-      <div className="relative z-10 mt-1 p-8">
-        {/* Judul Hero Section */}
+      <div className="relative z-10">
+        <div className="relative w-full h-96 overflow-hidden rounded-lg shadow-md mx-auto max-w-4xl">
+          {carouselData.map((item, index) => (
+            <a
+              key={index}
+              href={item.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`absolute w-full h-full transition-transform duration-500 ease-in-out ${
+                index === currentSlide ? "translate-x-0" : "translate-x-full"
+              }`}
+            >
+              <img
+                src={item.image || "/images/default.jpg"}
+                alt={item.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-4 left-4 text-white text-lg font-bold bg-black bg-opacity-50 px-4 py-2 rounded">
+                {item.title}
+              </div>
+            </a>
+          ))}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
+          >
+            &lt;
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+
+      <div className="relative z-10 mt-8 px-8">
         <h2 className="text-white text-3xl font-bold mb-4">WHO WE ARE</h2>
-
-        {/* Deskripsi */}
         <p className="text-white text-lg mb-8">
           Family to Jannah (FTJ) is a unique group of family who use their
           musical talents to spread kindness, empathy, and love to children and
@@ -51,33 +130,28 @@ export default function Home() {
           create music that is both entertaining and educational, serving as a
           positive role model for children to look up to and learn from.
         </p>
+      </div>
 
-        {/* Gambar dalam Layout Horizontal */}
+      <div className="relative z-10 py-8">
         <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
-          {/* Gambar 1 */}
           <img
             src="/images/photo1.jpg"
             alt="Family To Jannah 1"
-            className="w-full md:w-1/3 rounded-lg shadow-md object-cover h-64"
+            className="w-full md:w-1/3 rounded-lg shadow-md object-cover h-64 transform transition duration-500 hover:scale-105"
           />
-          {/* Gambar 2 */}
           <img
             src="/images/photo2.jpg"
             alt="Family To Jannah 2"
-            className="w-full md:w-1/3 rounded-lg shadow-md object-cover h-64"
+            className="w-full md:w-1/3 rounded-lg shadow-md object-cover h-64 transform transition duration-500 hover:scale-105"
           />
-          {/* Gambar 3 */}
           <img
             src="/images/photo3.jpg"
             alt="Family To Jannah 3"
-            className="w-full md:w-1/3 rounded-lg shadow-md object-cover h-64"
+            className="w-full md:w-1/3 rounded-lg shadow-md object-cover h-64 transform transition duration-500 hover:scale-105"
           />
         </div>
       </div>
 
-      {/* <PhotoCarousel /> */}
-
-      {/* Gunakan komponen SidebarMenu */}
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   );

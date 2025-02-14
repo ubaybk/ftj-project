@@ -13,6 +13,7 @@ export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
     { title: "Member", path: "/pages/members" },
     { title: "Media & Collaborations", path: "/pages/mediaCollaboration" },
     { title: "Music & Video", path: "/pages/musicVideo" },
+    { title: "Merchandise", path: "/pages/merchandise" },
   ];
 
   const [hoveredItem, setHoveredItem] = useState(null);

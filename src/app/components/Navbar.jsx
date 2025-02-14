@@ -42,6 +42,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             Music & Video
           </h1>
         </Link>
+        <Link href={"/pages/merchandise"}>
+          <h1 className="cursor-pointer hover:text-gray-300 transition-colors">
+            Merchandise
+          </h1>
+        </Link>
       </div>
 
       {/* Hamburger menu */}
