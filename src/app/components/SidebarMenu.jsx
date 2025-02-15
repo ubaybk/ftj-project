@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function SidebarMenu({ isMenuOpen, setIsMenuOpen }) {
   const menuItems = [
     { title: "Home", path: "/" },
-    { title: "About", path: "/pages/about" },
+    { title: "Ariticles", path: "/pages/articles" },
     { title: "Contact", path: "/pages/contact" },
     { title: "Member", path: "/pages/members" },
     { title: "Media & Collaborations", path: "/pages/mediaCollaboration" },

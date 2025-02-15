@@ -107,33 +107,66 @@ const Contact = () => {
             </a>
           </motion.div>
 
-          {/* Team Section */}
+          {/* Advisory Section */}
           <motion.div className="mb-8" variants={itemVariants}>
-            <h2 className="text-2xl font-semibold mb-4 text-pink-600">
-              Our Team
+            <h2 className="text-2xl font-semibold mb-4 text-purple-600">
+            Advisory Board
+
             </h2>
-            <p className="font-medium mb-2 text-black">Lead by Dr. Luigi Team:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-black">
-              {[
-                "Franka Soeria",
-                "Hasrika",
-                "Hamimi Daulay",
-                "Ditto S.",
-                "Adriel Putra",
-                "Riska Julya",
-                "Deriendri Dhanny",
-              ].map((name, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-pink-50 p-3 rounded-lg hover:shadow-md transition-all"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  {name}
-                </motion.div>
-              ))}
+            <div  className="block flex-col ">
+              <motion.div
+                className="flex items-center gap-3 p-3 mb-3 bg-purple-50 rounded-lg hover:shadow-md transition-all text-black"
+                whileHover={{ x: 10 }}
+              >
+                <div className="bg-purple-500 p-2 rounded-full">
+                </div>
+                <p>Suzanna</p>
+              </motion.div>
+              <motion.div
+                className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg hover:shadow-md transition-all text-black"
+                whileHover={{ x: 10 }}
+              >
+                <div className="bg-purple-500 p-2 rounded-full">
+                </div>
+                <p>Tommy Sjarif</p>
+              </motion.div>
             </div>
           </motion.div>
+
+          {/* Team Section */}
+          {/* Team Section */}
+<motion.div className="mb-8" variants={itemVariants}>
+  <h2 className="text-2xl font-semibold mb-4 text-pink-600">
+    Our Team
+  </h2>
+  <p className="font-medium mb-2 text-black">Lead by Dr. Luigi Team:</p>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-black">
+    {[
+      "Rinaldi Ramadhan",
+      "Orrie",
+      "Franka Soeria",
+      "Hasrika",
+      "Hamimi Daulay",
+      "Nino",
+      "Adriel Putra",
+      "Riska Julya",
+      "Deriendri Dhanny",
+      "Ismail"
+    ].map((name, index) => (
+      <motion.div
+        key={index}
+        className="flex items-center gap-3 p-3 bg-pink-50 rounded-lg hover:shadow-md transition-all"
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 400 }}
+      >
+        {/* Bullet berwarna */}
+        <div className="bg-pink-500 p-2 rounded-full"></div>
+        {/* Nama anggota tim */}
+        <p>{name}</p>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
 
           {/* Social Media Section */}
           {/* Social Media Section */}

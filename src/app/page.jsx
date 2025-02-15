@@ -120,15 +120,10 @@ export default function Home() {
       <div className="relative z-10 mt-8 px-8">
         <h2 className="text-white text-3xl font-bold mb-4">WHO WE ARE</h2>
         <p className="text-white text-lg mb-8">
-          Family to Jannah (FTJ) is a unique group of family who use their
-          musical talents to spread kindness, empathy, and love to children and
-          families around the world. Through their harmonious voices, they
-          create and sing uplifting songs that promote positive values and
-          inspire young hearts to be good friends to one another. Spreading
-          Dakwah and Islamic values including awareness about Palestine through
-          music. With a focus on providing high-quality content, FTJ strives to
-          create music that is both entertaining and educational, serving as a
-          positive role model for children to look up to and learn from.
+        "Family to Jannah (FTJ) is a unique group of family who use their musical talents to spread kindness, empathy, and love to children and families around the world. 
+Through their harmonious voices, they create and sing uplifting songs that promote positive values and inspire young hearts to be good friends to one another. Spreading Dakwa and Islamic values including awareness about Palestine through music.
+With a focus on providing high-quality content, FTJ strives to create music that is both entertaining and educational, serving as a positive role model for children to look up to and learn from."
+
         </p>
       </div>
 

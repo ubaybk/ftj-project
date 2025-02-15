@@ -21,9 +21,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           Home
         </h1>
         </Link>
+        <Link href={"/pages/articles"}>
         <h1 className="cursor-pointer hover:text-gray-300 transition-colors">
-          About
+          Articles
         </h1>
+        </Link>
         <Link href={"/pages/contact"}>
           <h1 className="cursor-pointer hover:text-gray-300 transition-colors">
             Contact
