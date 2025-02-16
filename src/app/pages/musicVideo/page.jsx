@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/app/components/Navbar";
 import SidebarMenu from "@/app/components/SidebarMenu";
 import contentfullMedia from "@/contentful/contentfullMedia";
+// Impor ikon dari React Icons
+import { FaYoutube } from "react-icons/fa"; // Ikon YouTube
+import { SiSpotify } from "react-icons/si"; // Ikon Spotify
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-900">
@@ -25,23 +28,20 @@ const MusicVideo = () => {
         const response = await contentfullMedia.getEntries({
           content_type: "musicVideo",
         });
-
         if (!response.items || response.items.length === 0) {
           throw new Error("No data found in Contentful");
         }
-
         const entries = response.items.map((item) => {
           const imageAsset = response.includes.Asset.find(
             (asset) => asset.sys.id === item.fields.imgMusicVideo.sys.id
           );
-
           return {
             title: item.fields.judulMusic,
             image: imageAsset?.fields?.file?.url,
             youtubeUrl: item.fields.linkYt,
+            spotifyUrl: item.fields.linkSpotify,
           };
         });
-
         setMusicVideos(entries);
         setLoading(false);
       } catch (err) {
@@ -50,7 +50,6 @@ const MusicVideo = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
@@ -108,9 +107,7 @@ const MusicVideo = () => {
         style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 backdrop-blur-sm" />
-
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-
       <AnimatePresence>
         <div className="relative z-10 container mx-auto px-4 py-16">
           <motion.div
@@ -126,7 +123,6 @@ const MusicVideo = () => {
               Family to Jannah presents a collection of music and videos inspired by love and compassion.
             </p>
           </motion.div>
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -134,35 +130,55 @@ const MusicVideo = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {musicVideos.map((video, index) => (
-              <motion.a
+              <motion.div
                 key={index}
-                href={video.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group block bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20"
+                className="group block bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 relative cursor-pointer"
               >
+                {/* Gambar */}
                 <div className="relative aspect-video overflow-hidden">
                   <motion.img
                     src={video.image || "/images/default.jpg"}
                     alt={video.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center space-y-4">
+                    {/* Tombol YouTube */}
+                    <a
+                      href={video.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-2 bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300"
+                    >
+                      <FaYoutube className="w-6 h-6" />
+                      <span>YouTube</span>
+                    </a>
+                    {/* Tombol Spotify */}
+                    <a
+                      href={video.spotifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-2 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
+                    >
+                      <SiSpotify className="w-6 h-6" />
+                      <span>Spotify</span>
+                    </a>
+                  </div>
                 </div>
+                {/* Judul */}
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-white line-clamp-2 group-hover:text-blue-400 transition-colors duration-300 text-center">
                     {video.title}
                   </h3>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </AnimatePresence>
-
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   );
