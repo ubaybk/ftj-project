@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/app/components/Navbar";
 import contentfullMedia from "@/contentful/contentfullMedia";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import SidebarMenu from "@/app/components/SidebarMenu";
+
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-900">
@@ -165,6 +167,7 @@ const Articles = () => {
           </motion.div>
         </div>
       </AnimatePresence>
+      <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   );
 };
