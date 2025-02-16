@@ -144,9 +144,9 @@ const Contact = () => {
     {[
       "Rinaldi Ramadhan",
       "Orrie",
-      "Franka Soeria",
       "Hasrika",
       "Hamimi Daulay",
+      "Franka Soeria",
       "Nino",
       "Adriel Putra",
       "Riska Julya",

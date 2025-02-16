@@ -25,25 +25,22 @@ const Merchandise = () => {
         const response = await contentfullMedia.getEntries({
           content_type: "merchandise",
         });
-
         if (!response.items || response.items.length === 0) {
           throw new Error("No data found in Contentful");
         }
-
         const entries = response.items.map((item) => {
           const imageAsset = response.includes.Asset.find(
             (asset) => asset.sys.id === item.fields.imgMerchandise.sys.id
           );
-
           return {
             title: item.fields.titleMerchandise,
             size: item.fields.sizeMerchandise,
             price: item.fields.prizeMerchandise,
-            link: item.fields.linkMerchandise,
+            tokpedLink: item.fields.linkMerchandise,
+            shoopeLink: item.fields.shoopeLinkMarchendise,
             image: imageAsset?.fields?.file?.url,
           };
         });
-
         setMerchandises(entries);
         setLoading(false);
       } catch (err) {
@@ -52,7 +49,6 @@ const Merchandise = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
@@ -110,9 +106,7 @@ const Merchandise = () => {
         style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 backdrop-blur-sm" />
-
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-
       <AnimatePresence>
         <div className="relative z-10 container mx-auto px-4 py-16">
           <motion.div
@@ -128,7 +122,6 @@ const Merchandise = () => {
               Explore our exclusive Family to Jannah merchandise collection.
             </p>
           </motion.div>
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -136,38 +129,65 @@ const Merchandise = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {merchandises.map((merch, index) => (
-              <motion.a
+              <motion.div
                 key={index}
-                href={merch.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group block bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20"
+                className="group block bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 relative cursor-pointer"
               >
-                <div className="relative p-4 flex justify-center items-center bg-black/20">
-                  <div className="w-full max-w-[250px] mx-auto aspect-square overflow-hidden rounded-lg">
-                    <motion.img
-                      src={merch.image || "/images/default.jpg"}
-                      alt={merch.title}
-                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                    />
+                {/* Gambar */}
+                <div className="relative aspect-video overflow-hidden">
+                  <motion.img
+                    src={merch.image || "/images/default.jpg"}
+                    alt={merch.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center space-y-4">
+                    {/* Tombol Tokopedia */}
+                    <a
+                      href={merch.tokpedLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-2 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors duration-300"
+                    >
+                      <img
+                        src="/images/marketplace/tokopedia.svg"
+                        alt="Tokopedia Logo"
+                        className="w-6 h-6"
+                      />
+                      <span>Buy on Tokopedia</span>
+                    </a>
+                    {/* Tombol Shopee */}
+                    <a
+                      href={merch.shoopeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center space-x-2 bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors duration-300"
+                    >
+                      <img
+                        src="/images/marketplace/shopee.png"
+                        alt="Shopee Logo"
+                        className="w-6 h-6"
+                      />
+                      <span>Buy on Shopee</span>
+                    </a>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-white line-clamp-2 group-hover:text-blue-400 transition-colors duration-300">
+                {/* Judul, Ukuran, dan Harga */}
+                <div className="p-6 space-y-2">
+                  <h3 className="text-lg font-semibold text-white line-clamp-2 group-hover:text-blue-400 transition-colors duration-300 text-center">
                     {merch.title}
                   </h3>
-                  <p className="text-sm text-gray-300 mt-2">{merch.size}</p>
-                  <p className="text-base font-bold text-blue-400 mt-2">{merch.price}</p>
+                  <p className="text-sm text-gray-300 text-center">{merch.size}</p>
+                  <p className="text-base font-bold text-blue-400 text-center">{merch.price}</p>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </AnimatePresence>
-
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </div>
   );
