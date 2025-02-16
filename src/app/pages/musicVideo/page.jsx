@@ -20,6 +20,7 @@ const MusicVideo = () => {
   const [error, setError] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState(null); // State untuk melacak item yang diperluas
 
   useEffect(() => {
     setIsMounted(true);
@@ -40,6 +41,7 @@ const MusicVideo = () => {
             image: imageAsset?.fields?.file?.url,
             youtubeUrl: item.fields.linkYt,
             spotifyUrl: item.fields.linkSpotify,
+            description: item.fields.descSong, // Menambahkan deskripsi
           };
         });
         setMusicVideos(entries);
@@ -136,6 +138,9 @@ const MusicVideo = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="group block bg-white/10 backdrop-blur-md rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 relative cursor-pointer"
+                onMouseEnter={() => setExpandedIndex(index)} // Hover untuk memperluas deskripsi
+                onMouseLeave={() => setExpandedIndex(null)} // Keluar hover untuk menyembunyikan deskripsi
+                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)} // Klik untuk toggle deskripsi
               >
                 {/* Gambar */}
                 <div className="relative aspect-video overflow-hidden">
@@ -168,11 +173,19 @@ const MusicVideo = () => {
                     </a>
                   </div>
                 </div>
-                {/* Judul */}
-                <div className="p-6">
+                {/* Judul dan Deskripsi */}
+                <div className="p-6 space-y-2">
                   <h3 className="text-lg font-semibold text-white line-clamp-2 group-hover:text-blue-400 transition-colors duration-300 text-center">
                     {video.title}
                   </h3>
+                  {/* Deskripsi */}
+                  <p
+                    className={`text-sm text-gray-300 text-center ${
+                      expandedIndex === index ? "line-clamp-none" : "line-clamp-2"
+                    } transition-all duration-300`}
+                  >
+                    {video.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
