@@ -66,9 +66,9 @@ const Footer = () => {
             </h3>
             <ul className="grid grid-cols-2 sm:grid-cols-2 gap-3">
               {[
-                ['Instagram', 'https://www.instagram.com', 'bg-pink-500', <Instagram size={20} />],
-                ['TikTok', 'https://www.tiktok.com', 'bg-gray-600', <Video size={20} />],
-                ['Spotify', 'https://open.spotify.com', 'bg-green-600', <Music size={20} />],
+                ['Instagram', 'https://www.instagram.com/familytojannah.id/', 'bg-pink-500', <Instagram size={20} />],
+                ['TikTok', 'https://www.tiktok.com/@familytojannah', 'bg-gray-600', <Video size={20} />],
+                ['Spotify', 'https://open.spotify.com/artist/4VTAmlMXvksCpw18niJwUR', 'bg-green-600', <Music size={20} />],
               ].map(([title, url, bgColor, icon]) => (
                 <li key={title}>
                   <a 
