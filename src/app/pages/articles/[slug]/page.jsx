@@ -6,6 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import contentfullMedia from "@/contentful/contentfullMedia";
 import Navbar from "@/app/components/Navbar";
 import { ArrowLeft } from "lucide-react";
+import Footer from "@/app/components/Footer";
 
 const DetailArticles = () => {
   const router = useRouter();
@@ -119,6 +120,7 @@ const DetailArticles = () => {
           </article>
         </main>
       </div>
+      <Footer/>
     </div>
   );
 };

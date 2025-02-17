@@ -7,6 +7,7 @@ import contentfullMedia from "@/contentful/contentfullMedia";
 // Impor ikon dari React Icons
 import { FaYoutube } from "react-icons/fa"; // Ikon YouTube
 import { SiSpotify } from "react-icons/si"; // Ikon Spotify
+import Footer from "@/app/components/Footer";
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-900">
@@ -193,6 +194,7 @@ const MusicVideo = () => {
         </div>
       </AnimatePresence>
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Footer/>
     </div>
   );
 };

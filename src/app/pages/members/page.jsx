@@ -5,6 +5,7 @@ import SidebarMenu from "../../components/SidebarMenu";
 import membersData from "./membersData";
 import Link from "next/link";
 import { Users, Grid3x3 } from "lucide-react";
+import Footer from "@/app/components/Footer";
 
 const Members = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,6 +50,7 @@ const Members = () => {
                 </div>
             </div>
             <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+            <Footer/>
         </div>
     );
 };

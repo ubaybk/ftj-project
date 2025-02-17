@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation"; // Gunakan useRouter dari next/navigation
 import membersData from "../membersData";
 import React from "react";
+import Footer from "@/app/components/Footer";
 
 const MemberDetail = ({ params }) => {
     const router = useRouter(); // Inisialisasi useRouter
@@ -18,7 +19,7 @@ const MemberDetail = ({ params }) => {
     }
 
     return (
-        <div className="min-h-screen bg-cover bg-center relative p-4" style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}>
+        <div className="min-h-screen bg-cover bg-center relative" style={{ backgroundImage: "url('/images/bgFtj.jpg')" }}>
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="relative z-10 p-4">
                 {/* Tombol Back */}
@@ -50,6 +51,7 @@ const MemberDetail = ({ params }) => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

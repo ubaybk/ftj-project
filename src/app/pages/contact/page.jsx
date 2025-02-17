@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { FaTiktok } from "react-icons/fa";
 import { FaSpotify } from "react-icons/fa";
 import SidebarMenu from "@/app/components/SidebarMenu";
+import Footer from "@/app/components/Footer";
 
 const Contact = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -251,6 +252,7 @@ const Contact = () => {
         </motion.div>
       </motion.main>
        <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+       <Footer/>
     </div>
   );
 };

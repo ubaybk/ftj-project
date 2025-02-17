@@ -6,6 +6,7 @@ import Navbar from "@/app/components/Navbar";
 import contentfullMedia from "@/contentful/contentfullMedia";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import SidebarMenu from "@/app/components/SidebarMenu";
+import Footer from "@/app/components/Footer";
 
 
 const LoadingSpinner = () => (
@@ -168,6 +169,7 @@ const Articles = () => {
         </div>
       </AnimatePresence>
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Footer/>
     </div>
   );
 };

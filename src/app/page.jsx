@@ -4,6 +4,7 @@ import Loading from "./components/Loading";
 import SidebarMenu from "./components/SidebarMenu";
 import Navbar from "./components/Navbar";
 import contentfullMedia from "@/contentful/contentfullMedia";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -146,6 +147,7 @@ export default function Home() {
       </div>
 
       <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Footer/>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import contentfullMedia from "../../../contentful/contentfullMedia";
 import SidebarMenu from "@/app/components/SidebarMenu";
+import Footer from "@/app/components/Footer";
 
 const LoadingSpinner = () => (
   <div className="min-h-screen flex items-center justify-center bg-gray-900">
@@ -150,6 +151,7 @@ const MediaColaboration = () => {
         </div>
       </AnimatePresence>
        <SidebarMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+       <Footer/>
     </div>
   );
 };
