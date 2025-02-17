@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col items-center mb-8 animate-fadeIn">
           <div className="mb-4 transform hover:scale-105 transition-transform duration-300 flex gap-3">
             <img
-              src="/images/logoFtj.png"
+              src="/images/logoFTJ.png"
               alt="Company Logo"
               className="h-12 w-auto"
             />
