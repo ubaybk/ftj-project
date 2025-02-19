@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="relative z-20 bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 text-white py-12">
+    <footer className="relative z-20 bg-gradient-to-b from-slate-900 via-blue-40 to-slate-900 text-white py-12">
       <div className="container mx-auto px-4">
         {/* Logo and Description Section */}
         <div className="flex flex-col items-center mb-8 animate-fadeIn">
