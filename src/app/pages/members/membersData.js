@@ -5,8 +5,7 @@ const membersData = [
         "Everyone’s Favorite Sister ",
         "Smart & Sweet Adventurer ",
         "Writer",
-        "Love Singing, Create Songs and Read Books",
-        "Sometimes shy"
+        "Love Singing, Create Songs and Read Books"
     ],  image: "/images/ftjMembers/aesha.jpg" },
     { id: 2, name: "Adila Oceana Santoso", description: [
         "11 years old",
