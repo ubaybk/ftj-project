@@ -71,7 +71,7 @@ const Contact = () => {
                   <div className="bg-blue-500 p-2 rounded-full">
                     <Phone className="w-5 h-5 text-white" />
                   </div>
-                  <p>+6289526603943</p>
+                  <p>+6285591485200</p>
                 </motion.div>
               </a>
 
