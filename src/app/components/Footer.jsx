@@ -95,7 +95,7 @@ const Footer = () => {
             <ul className="grid grid-cols-2 sm:grid-cols-2 gap-3">
               {[
                 ['Email', 'mailto:familytojannah@gmail.com', 'bg-yellow-500', <Mail size={20} />],
-                ['WhatsApp', 'https://wa.me/6289526603943', 'bg-green-500', <MessageCircle size={20} />],
+                ['WhatsApp', 'https://wa.me/+6285591485200', 'bg-green-500', <MessageCircle size={20} />],
               ].map(([title, url, bgColor, icon]) => (
                 <li key={title}>
                   <a 
